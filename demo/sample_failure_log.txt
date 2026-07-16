@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/app/process_orders.py", line 63, in <module>
+    main()
+  File "/app/process_orders.py", line 58, in main
+    summary = summarize(orders)
+              ^^^^^^^^^^^^^^^^^
+  File "/app/process_orders.py", line 38, in summarize
+    discount = order["discount_pct"]
+               ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'discount_pct'
