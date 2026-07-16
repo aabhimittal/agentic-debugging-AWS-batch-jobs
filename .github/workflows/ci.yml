@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements-dev.txt
+      - run: ruff check agent demo scripts cdk tests
+      - run: python -m pytest -q
+
+  cdk-synth:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: pip install -r cdk/requirements.txt
+      - run: npm install -g aws-cdk@2
+      - name: cdk synth (environment-agnostic, no AWS credentials needed)
+        working-directory: cdk
+        run: cdk synth --app "python3 app.py" -c githubRepo=example/example -c alertEmail=ci@example.com
