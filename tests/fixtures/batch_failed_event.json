@@ -1,0 +1,22 @@
+{
+  "version": "0",
+  "id": "11111111-2222-3333-4444-555555555555",
+  "detail-type": "Batch Job State Change",
+  "source": "aws.batch",
+  "account": "123456789012",
+  "time": "2026-07-16T12:00:00Z",
+  "region": "us-east-1",
+  "resources": ["arn:aws:batch:us-east-1:123456789012:job/job-1"],
+  "detail": {
+    "jobId": "job-1",
+    "jobName": "demo-orders-bad-1721131200",
+    "jobQueue": "arn:aws:batch:us-east-1:123456789012:job-queue/agentic-batch-debug-demo-queue",
+    "jobDefinition": "arn:aws:batch:us-east-1:123456789012:job-definition/agentic-batch-debug-demo-job:1",
+    "status": "FAILED",
+    "statusReason": "Essential container in task exited",
+    "container": {
+      "exitCode": 1,
+      "logStreamName": "agentic-batch-debug-demo-job/default/abc123"
+    }
+  }
+}

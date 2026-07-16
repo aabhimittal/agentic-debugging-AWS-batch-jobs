@@ -1,0 +1,5 @@
+[
+  {"order_id": "A-1001", "amount": 42.50, "quantity": 2, "discount_pct": 0, "region": "us"},
+  {"order_id": "A-1002", "amount": 19.99, "quantity": 1, "discount_pct": 10, "region": "us"},
+  {"order_id": "B-2001", "amount": 88.00, "quantity": 1, "region": "eu"}
+]
